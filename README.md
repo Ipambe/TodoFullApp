@@ -84,7 +84,3 @@
    - Arquitectura en capas (Controladores, Servicios, Repositorios).
    - Separación clara entre la lógica de negocio y la lógica de acceso a datos.
    - Patrón Repository para la gestión de entidades.
-
----
-
-Con estos requerimientos, puedes tener una visión clara de lo que necesitas implementar tanto en el frontend como en el backend, abordando desde la autenticación con JWT hasta la gestión avanzada de tareas. ¡Éxito en tu desarrollo!
