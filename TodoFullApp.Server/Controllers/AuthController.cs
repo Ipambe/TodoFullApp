@@ -7,13 +7,13 @@ using TodoFullApp.Server.Services.Interfaces;
 namespace TodoFullApp.Server.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
-  public class AccessController : Controller
+  [Route("api/[controller]")]
+  public class AuthController : Controller
   {
     private readonly IUsuarioService _usuarioService;
     private readonly IAuthService _authService;
 
-    public AccessController(IUsuarioService usuarioService, IAuthService authService)
+    public AuthController(IUsuarioService usuarioService, IAuthService authService)
     {
       _usuarioService = usuarioService;
       _authService = authService;
@@ -60,7 +60,7 @@ namespace TodoFullApp.Server.Controllers
 
         HttpContext.Response.Cookies.Append("AuthToken", token, cookieOptions);
 
-        return Ok(new { token });
+        return NoContent();
       }
       catch (UnauthorizedAccessException ex)
       {
@@ -87,7 +87,7 @@ namespace TodoFullApp.Server.Controllers
       try
       {
         HttpContext.Response.Cookies.Delete("AuthToken");
-        return Ok();
+        return NoContent();
       }
       catch
       {
@@ -95,5 +95,13 @@ namespace TodoFullApp.Server.Controllers
       }
     }
 
+    [HttpGet]
+    [Route("verify")]
+    public IActionResult Verify()
+    {
+      var isAuthenticated = HttpContext.User.Identity?.IsAuthenticated;
+      if (isAuthenticated == null || isAuthenticated == false) return Unauthorized();
+      return Ok();
+    }
   }
 }
