@@ -1,1 +1,1 @@
-export const succesfulRequest = (status: number) => status >= 200 && status < 300
+export const succesfulRequest = ({status}: {status: number}) => status >= 200 && status < 300

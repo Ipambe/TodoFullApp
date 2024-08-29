@@ -1,0 +1,52 @@
+/* export const Header = ({ username = 'Jon' }: Props) => {
+  const { logout } = useAuth()
+  return (
+    <header className='header flex justify-between items-center py-4 px-10 bg-gray-800 text-white'>
+      <h1 className='text-2xl'>TodoFullApp</h1>
+      <div className='dropdown w-full flex items-center gap-2 relative'>
+        <h5 className='text-lg'>{username}</h5>
+        <PhUserCircle className='w-8 h-8' />
+        <span className='dropdown-content flex flex-col items-end ml-2 absolute'>
+          <button className='px-2 py-1 bg-gray-700 hover:bg-gray-600 rounded-md transition-all'>
+            Edit profile
+          </button>
+          <button
+            className='px-2 py-1 bg-gray-700 hover:bg-gray-600 hover:text-red-600 rounded-md transition-all'
+            onClick={logout}
+          >
+            <LaPowerOff className='w-4 h-4 mr-1 ' />
+            Logout
+          </button>
+        </span>
+      </div>
+    </header>
+  )
+} */
+.header {
+  & .dropdown {
+    &:hover {
+      .dropdown-content {
+        display: flex;
+      }
+    }
+
+    .dropdown-content {
+      scale: 1;
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: 150px;
+      overflow: auto;
+      transition: all 0.3s ease-in-out allow-discrete;
+
+      &:hover {
+        display: flex;
+      }
+      
+      @starting-style {
+        scale: 0;
+      }
+    }
+  }
+}

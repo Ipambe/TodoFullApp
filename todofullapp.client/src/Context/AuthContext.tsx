@@ -1,10 +1,5 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react'
-import {
-  verify as verifyUser,
-  login as loginUser,
-  logout
-} from '../helpers/auth'
-import { succesfulRequest } from '../helpers/succesfulRequest'
+import { verify, authenticate, logout as _logout } from '../helpers/auth'
 import { AuthContextType, User } from '../types'
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -16,38 +11,26 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     const checkAuth = async () => {
-      try {
-        const res = await verifyUser()
-
-        if (succesfulRequest(res.status)) {
-          setIsAuthenticated(true)
-        } else {
-          setIsAuthenticated(false)
-        }
-      } catch (error) {
-        console.error('Error al verificar autenticación:', error)
-        setIsAuthenticated(false)
-      }
+      const res = await verify()
+      setIsAuthenticated(res || false)
     }
-
     checkAuth()
   }, [])
 
   const login = async ({ username, password }: User) => {
     try {
-      const res = await loginUser({ username, password })
-
-      if (succesfulRequest(res.status)) {
-        setIsAuthenticated(true)
-      } else {
-        setIsAuthenticated(false)
-      }
+      const res = await authenticate({ username, password })
+      setIsAuthenticated(res || false)
     } catch (error) {
       console.error('Error en el login:', error)
       setIsAuthenticated(false)
     }
   }
 
+  const logout = async () => {
+    const res = await _logout()
+    setIsAuthenticated(!res || false)
+  }
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>

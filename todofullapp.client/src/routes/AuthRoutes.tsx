@@ -1,20 +1,15 @@
-import { Routes, Route } from 'react-router-dom'
-import AppRoutes from './AppRoutes'
-import Login from '../pages/Login'
+import Home from '@/pages/Home'
+import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from '../components/PrivateRoute'
+import Login from '../pages/Login'
 
 export default function AuthRoutes() {
   return (
     <Routes>
       <Route path='login' element={<Login />} />
-      <Route
-        path='/home'
-        element={
-          <PrivateRoute>
-            <AppRoutes />
-          </PrivateRoute>
-        }
-      />
+      <Route element={<PrivateRoute />}>
+        <Route path='/' element={<Home />} />
+      </Route>
     </Routes>
   )
 }

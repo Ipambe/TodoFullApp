@@ -12,14 +12,14 @@ export default function Login() {
   const { login, isAuthenticated } = useAuth()
 
   useEffect(() => {
-    if (isAuthenticated) navigate('/home', { replace: true })
+    if (isAuthenticated) navigate('/', { replace: true })
   }, [isAuthenticated, navigate])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       await login(form)
-      navigate('/home', { replace: true })
+      navigate('/', { replace: true })
     } catch (error) {
       console.error('Error en el login:', error)
     }
