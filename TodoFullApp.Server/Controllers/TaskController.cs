@@ -48,18 +48,18 @@ namespace TodoFullApp.Server.Controllers
     }
 
     [HttpPut]
-    [Route("title/{id}")]
-    public IActionResult UpdateTitle(Guid id, [FromBody] string title)
+    [Route("titulo/{id}")]
+    public IActionResult UpdateTitulo(Guid id, [FromBody] TareaUpdateDto payload)
     {
-      _tareaService.UpdateTitle(id, title);
+      _tareaService.UpdateTitulo(id, payload.Payload);
       return NoContent();
     }
 
     [HttpPut]
-    [Route("category/{id}")]
-    public IActionResult UpdateCategory(Guid id, [FromBody] string categoria)
+    [Route("categoria/{id}")]
+    public IActionResult UpdateCategoria(Guid id, [FromBody] TareaUpdateDto payload)
     {
-      _tareaService.UpdateCategory(id, categoria);
+      _tareaService.UpdateCategoria(id, payload.Payload);
       return NoContent();
     }
 

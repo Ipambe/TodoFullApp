@@ -9,7 +9,7 @@ interface Props {
 export const Header = ({ username = 'Jon' }: Props) => {
   const { logout } = useAuth()
   return (
-    <header className='header flex justify-between items-center py-4 px-10 bg-gray-800 text-white'>
+    <header className='header flex justify-between items-center py-4 px-10 bg-gray-800 text-white sticky top-0 z-10'>
       <h1 className='text-2xl'>TodoFullApp</h1>
       <div className='dropdown flex justify-end gap-2 relative cursor-pointer'>
         <h5 className='text-lg'>{username}</h5>

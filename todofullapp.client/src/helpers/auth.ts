@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { type User } from '../types'
 import { succesfulRequest } from './succesfulRequest'
+import { User } from '@models/User.model'
 
-const axiosRequestConfig = {
+export const axiosRequestConfig = {
   withCredentials: true,
   validateStatus: (status: number) => {
     return status < 500

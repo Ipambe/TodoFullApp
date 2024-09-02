@@ -29,19 +29,19 @@ namespace TodoFullApp.Server.Repositories
       _context.SaveChanges();
     }
 
-    public void UpdateTitle(Guid id, string title)
+    public void UpdateTitulo(Guid id, string titulo)
     {
       var tarea = GetOne(id);
       if (tarea == null) return;
-      tarea.Titulo = title;
+      tarea.Titulo = titulo;
       _context.SaveChanges();
     }
 
-    public void UpdateCategory(Guid id, string category)
+    public void UpdateCategoria(Guid id, string categoria)
     {
       var tarea = GetOne(id);
       if (tarea == null) return;
-      tarea.Categoria = category;
+      tarea.Categoria = categoria;
       _context.SaveChanges();
     }
 

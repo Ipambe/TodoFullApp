@@ -7,8 +7,8 @@ namespace TodoFullApp.Server.Services.Interfaces
   {
     IEnumerable<TareaDto> GetAll(Guid id);
     void Add(Tarea tarea);
-    void UpdateTitle(Guid id, string title);
-    void UpdateCategory(Guid id, string category);
+    void UpdateTitulo(Guid id, string titulo);
+    void UpdateCategoria(Guid id, string categoria);
     void ToggleComplete(Guid id);
     void DeleteOne(Guid id);
     void DeleteMany(IEnumerable<Guid> ids);

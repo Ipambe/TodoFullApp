@@ -7,8 +7,8 @@ namespace TodoFullApp.Server.Repositories.Interfaces
     Tarea? GetOne(Guid id);
     IEnumerable<Tarea> GetAll();
     void Add(Tarea task);
-    void UpdateTitle(Guid id, string title);
-    void UpdateCategory(Guid id, string category);
+    void UpdateTitulo(Guid id, string titulo);
+    void UpdateCategoria(Guid id, string categoria);
     void ToggleTask(Guid id);
     void Delete(Guid id);
   }

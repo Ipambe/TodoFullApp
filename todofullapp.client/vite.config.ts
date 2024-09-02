@@ -49,10 +49,16 @@ export default defineConfig({
   resolve: {
     alias: {
       // '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@models': path.resolve(__dirname, './src/models'),
+      '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@components': path.resolve(__dirname, './src/components'),
       '@': path.resolve(__dirname, './src')
     }
   },
   server: {
+    host: true,
     proxy: {
       '^/auth': {
         target,
@@ -66,6 +72,7 @@ export default defineConfig({
       }
     },
     port: 5173,
+
     https: {
       key: fs.readFileSync(keyFilePath),
       cert: fs.readFileSync(certFilePath)

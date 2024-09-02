@@ -1,0 +1,57 @@
+button.deleteMany {
+  display: none;
+  transition: all 0.1s ease-in-out allow-discrete;
+
+  scale: 0;
+
+  @starting-style {
+    scale: 1;
+  }
+
+  &.active {
+    display: inline-block;
+    scale: 1;
+
+    @starting-style {
+      scale: 0;
+    }
+  }
+}
+
+div.MuiDataGrid-row {
+  & .deleteOne {
+    display: none;
+    scale: 1;
+    transition: all 0.1s ease-in-out;
+
+    @starting-style {
+      scale: 0;
+    }
+  }
+
+  &:hover {
+    & .deleteOne {
+      display: block;
+    }
+  }
+}
+
+div.modal {
+  display: none;
+  transition: all 0.1s ease-in-out allow-discrete;
+
+  scale: 0;
+
+  @starting-style {
+    scale: 1;
+  }
+
+  &.show {
+    display: flex;
+    scale: 1;
+
+    @starting-style {
+      scale: 0;
+    }
+  }
+}

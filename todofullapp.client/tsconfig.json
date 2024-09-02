@@ -11,6 +11,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@models/*": ["./src/models/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
       "@/*": ["./src/*"]
     }
   }

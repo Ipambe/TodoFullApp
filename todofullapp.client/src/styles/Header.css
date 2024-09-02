@@ -3,25 +3,31 @@
     &:hover {
       .dropdown-content {
         display: flex;
+        /* height: auto; */
       }
     }
-
+    
     .dropdown-content {
-      scale: 1;
+      /* scale: 1; */
+      /* height: auto; */
+      height: 80px;
       display: none;
       position: absolute;
       right: 0;
       top: 100%;
       width: 150px;
-      overflow: auto;
-      transition: all 0.3s ease-in-out allow-discrete;
+      /* overflow: auto; */
+      transition: all 0.1s ease-in-out allow-discrete;
 
       &:hover {
+        /* height: auto; */
         display: flex;
+
       }
       
       @starting-style {
-        scale: 0;
+        /* scale: 0; */
+        height: 0;
       }
     }
   }

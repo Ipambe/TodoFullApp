@@ -11,7 +11,7 @@ export const useForm = <T extends Record<string, unknown>>(initialForm: T) => {
     })
   }
 
-  const onResetForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const onResetForm = (e: React.FormEvent) => {
     e.preventDefault()
     setForm(initialForm)
   }

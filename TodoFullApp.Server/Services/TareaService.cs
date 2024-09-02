@@ -37,14 +37,14 @@ namespace TodoFullApp.Server.Services
       _tareaRepository.Add(tarea);
     }
 
-    public void UpdateTitle(Guid id, string title)
+    public void UpdateTitulo(Guid id, string titulo)
     {
-      _tareaRepository.UpdateTitle(id, title);
+      _tareaRepository.UpdateTitulo(id, titulo);
     }
 
-    public void UpdateCategory(Guid id, string category)
+    public void UpdateCategoria(Guid id, string categoria)
     {
-      _tareaRepository.UpdateCategory(id, category);
+      _tareaRepository.UpdateCategoria(id, categoria);
     }
 
     public void ToggleComplete(Guid id)
