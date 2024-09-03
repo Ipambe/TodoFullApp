@@ -50,7 +50,13 @@ export default function TaskMain() {
       headerName: 'Completada',
       getActions: (params) => [
         <GridActionsCellItem
-          icon={params.row.completada ? <Check color='green' /> : <PhXCircle color='red'/>}
+          icon={
+            params.row.completada ? (
+              <Check color='green' />
+            ) : (
+              <PhXCircle color='red' />
+            )
+          }
           onClick={() => handleToggleComplete(params.id.toString())}
           label='delete'
         />
@@ -98,23 +104,18 @@ export default function TaskMain() {
   }, [showModal])
 
   return (
-    <main className='bg-gray-100 min-h-screen flex flex-col justify-center py-10 px-24'>
+    <main className='bg-gray-100 min-h-screen flex flex-col  py-10 px-24'>
       <TaskMainHeader
         handleDeleteMany={handleDeleteMany}
         selected={selected}
         onToggleModal={handleToggleModal}
       />
       <DataGrid
-        autoHeight
+        // autoHeight
         checkboxSelection
         disableRowSelectionOnClick
         rows={tasks}
         columns={columns}
-        sx={{
-          width: '100%',
-          margin: 'auto',
-          transition: 'all 1s ease'
-        }}
         processRowUpdate={(newRow, oldRow) => {
           if (newRow.categoria !== oldRow.categoria) {
             const { id, categoria } = newRow
